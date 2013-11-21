@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <parent>
+    <artifactId>autopay-sdk</artifactId>
+    <groupId>com.interswitchng.techquest</groupId>
+    <version>1.0.0</version>
+  </parent>
+  
+  <groupId>com.interswitchng.techquest</groupId>
+  <artifactId>autopay-sdk-lib</artifactId>
+  <version>1.0.0</version>
+  <name>autopay-sdk-lib</name>
+  <url>http://www.interswitchng.com</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>3.1.3.RELEASE</spring.version>
+    <jackson1.version>1.9.2</jackson1.version>
+  </properties>
+  
+  
+  <dependencies>
+  	<dependency>
+	    	<groupId>org.bouncycastle</groupId>
+	    	<artifactId>bcpg-jdk15</artifactId>
+	    	<version>1.44</version>
+	    </dependency>
+	    <dependency>
+	    	<groupId>org.bouncycastle</groupId>
+	    	<artifactId>bcprov-jdk15</artifactId>
+	    	<version>1.44</version>
+	    </dependency>
+	    
+	    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>${jackson1.version}</version>
+	</dependency>
+    
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>4.3.1</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpcore</artifactId>
+		<version>4.3</version>
+	</dependency>
+	
+<!--     <dependency> -->
+<!-- 		<groupId>commons-httpclient</groupId> -->
+<!-- 		<artifactId>commons-httpclient</artifactId> -->
+<!-- 		<version>3.1</version> -->
+<!-- 	</dependency> -->
+	
+<!-- 	<dependency> -->
+<!--        <groupId>org.apache.commons</groupId> -->
+<!--        <artifactId>not-yet-commons-ssl</artifactId> -->
+<!--        <version>0.3.7</version> -->
+<!--      </dependency> -->
+     
+  </dependencies>
+  
+</project>
