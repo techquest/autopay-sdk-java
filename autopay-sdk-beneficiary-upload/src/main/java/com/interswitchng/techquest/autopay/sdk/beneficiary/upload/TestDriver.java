@@ -1,5 +1,6 @@
 package com.interswitchng.techquest.autopay.sdk.beneficiary.upload;
 
+import java.net.URL;
 import java.util.List;
 
 import com.interswitchng.techquest.autopay.sdk.beneficiary.upload.services.CsvBeneficiaryUpload;
@@ -15,8 +16,9 @@ public class TestDriver {
 		try
 		{
 			// PaymentUpload paymentUpload = new PaymentUpload();
-			String csvFile = "D:/Development/Systems Development/Programming/Java/autopay-sdk/autopay-sdk/autopay-sdk-payment-upload/src/main/resources/payment.csv";
-//			String csvFile = "payment.csv";
+			URL resourceUrl = TestDriver.class.getResource("/upload.csv");
+			String csvFile = resourceUrl.getFile();
+			csvFile = csvFile.replace("%20", " ");
 			CsvBeneficiaryUpload.CLIENT_ID = "IKIAEC529AFD17F2933B45A79FFDF488B68E07C67ADA";
 			CsvBeneficiaryUpload.CLIENT_SECRET_KEY = "NjPmuXURqZONFkYTWvXzv4TV9wwzAnWZykznYQ==";
 			CsvBeneficiaryUpload csvBeneficiaryUpload = new CsvBeneficiaryUpload();
