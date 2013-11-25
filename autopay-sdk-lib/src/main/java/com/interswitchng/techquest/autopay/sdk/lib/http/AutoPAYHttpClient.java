@@ -41,9 +41,10 @@ public class AutoPAYHttpClient<Req> {
 	
 	public RestResponse post(String url, Req request, Map<String, List<String>> headers)
 	{
-		RestResponse restResponse;
+		
 		try
 		{
+			RestResponse restResponse;
 //			System.setProperty("javax.net.debug", "all");
 			System.setProperty("javax.net.ssl.trustStore", truststore);
 			System.setProperty("javax.net.ssl.trustStorePassword", truststorePassword);

@@ -16,7 +16,7 @@ public class TestDriver {
 		try
 		{
 			// PaymentUpload paymentUpload = new PaymentUpload();
-			URL resourceUrl = TestDriver.class.getResource("/upload.csv");
+			URL resourceUrl = TestDriver.class.getResource("/beneficiary.csv");
 			String csvFile = resourceUrl.getFile();
 			csvFile = csvFile.replace("%20", " ");
 			CsvBeneficiaryUpload.CLIENT_ID = "IKIAEC529AFD17F2933B45A79FFDF488B68E07C67ADA";

@@ -38,7 +38,7 @@ public class CsvPaymentUtil {
 		uploadPaymentRequest.setMac(csvUploadPaymentRequest.getMac());
 		uploadPaymentRequest.setSourceAccount(csvUploadPaymentRequest.getSourceAccount());
 		uploadPaymentRequest.setTerminalId(csvUploadPaymentRequest.getTerminalId());
-		PaymentRequest[] paymentRequestArr = CsvPaymentUtil.extractPaymentRequestsFromCSVUploadPaymentRequest(csvUploadPaymentRequestList);
+		PaymentRequest[] paymentRequestArr = extractPaymentRequestsFromCSVUploadPaymentRequest(csvUploadPaymentRequestList);
 		uploadPaymentRequest.setPayments(paymentRequestArr);
 		
 		return uploadPaymentRequest;

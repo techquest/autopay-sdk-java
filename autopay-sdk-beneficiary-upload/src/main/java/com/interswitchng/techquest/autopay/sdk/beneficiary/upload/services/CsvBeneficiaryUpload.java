@@ -15,28 +15,8 @@ import com.interswitchng.techquest.autopay.sdk.lib.dto.RestResponse;
 import com.interswitchng.techquest.autopay.sdk.lib.http.AutoPAYHttpClient;
 import com.interswitchng.techquest.autopay.sdk.lib.utils.SecurityUtils;
 
-public class CsvBeneficiaryUpload {
+public class CsvBeneficiaryUpload extends BeneficiaryUpload{
 
-	// Get Client ID from Interswitch developer console. 
-	public static String CLIENT_ID;
-	// Get Client Secret Key from Interswitch developer console.
-	public static String CLIENT_SECRET_KEY;
-	
-	public CsvBeneficiaryUpload()
-	{
-		Assert.assertNotNull("Ensure Client Id is not null", CLIENT_ID);
-		Assert.assertTrue("Ensure Client Id is not empty", !CLIENT_ID.equalsIgnoreCase(""));
-		Assert.assertNotNull("Ensure Client Secret Key is not null", CLIENT_SECRET_KEY);
-		Assert.assertTrue("Ensure Client Secret Key is not empty", !CLIENT_SECRET_KEY.equalsIgnoreCase(""));
-		
-//      
-//		if (!file.exists()) 
-//      {
-//          System.out.println("The file you specified does not exist. path=" + pathToCsvFile);
-//          return new ArrayList<CsvUploadPaymentRequest>();
-//      }
-	}
-	
 	public RestResponse uploadBeneficiarys(String csvFile) throws IOException
 	{
 		Assert.assertNotNull("Ensure CSV File is not null", csvFile);
@@ -45,18 +25,8 @@ public class CsvBeneficiaryUpload {
 		Assert.assertTrue("Ensure CSV File exists", file.exists());
 		
 		UploadBeneficiaryRequest uploadBeneficiaryRequest = CsvBeneficiaryUtil.extractUploadBeneficiaryRequestFromCSVFile(file);
-		AutoPAYHttpClient<UploadBeneficiaryRequest> autoPAYHttpClient = new AutoPAYHttpClient<UploadBeneficiaryRequest>();
-		HashMap<String, List<String>> headers = getPaymentHeaders(ConstantUtils.BENEFICIARY_UPLOAD_RESOURCE_PATH, uploadBeneficiaryRequest);
-		RestResponse restResponse = autoPAYHttpClient.post(ConstantUtils.BENEFICIARY_UPLOAD_RESOURCE_PATH, uploadBeneficiaryRequest, headers);
+		RestResponse restResponse = uploadBeneficiarys(uploadBeneficiaryRequest);
 		return restResponse;
 	}
-	
-	
-	private HashMap<String, List<String>> getPaymentHeaders(String url, UploadBeneficiaryRequest uploadBeneficiaryRequest)
-	{
-		BeneficiaryUploadSecurityUtils securityUtils = new BeneficiaryUploadSecurityUtils();
-		String transactionParameters = securityUtils.getBeneficiaryUploadTransactionParameters(uploadBeneficiaryRequest);
-		HashMap<String, List<String>> headers = securityUtils.getSecurityHeaders(CLIENT_ID, CLIENT_SECRET_KEY, com.interswitchng.techquest.autopay.sdk.lib.utils.ConstantUtils.HTTP_POST, url, transactionParameters);
-		return headers;
-	}
+
 }
